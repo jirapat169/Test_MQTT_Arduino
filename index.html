@@ -65,7 +65,9 @@
       </div>
     </div>
     <div class="container-fluid">
-      Hello
+      <button onclick="mqttPublish('/WEB/LED', 'ON')">เปิดไฟ</button>
+      <br />
+      <button onclick="mqttPublish('/WEB/LED', 'OFF')">ปิดไฟ</button>
     </div>
   </body>
   <script src="./js/jquery-3.5.0.min.js"></script>

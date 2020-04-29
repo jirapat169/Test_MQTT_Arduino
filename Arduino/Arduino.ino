@@ -19,7 +19,6 @@ void reconnect() {
     if (client.connect(mqtt_client.c_str(), mqtt_username, mqtt_password)) {
       Serial.println("connected");
       client.subscribe("/WEB/+");
-      client.publish("/ESP/TEST", "ESP OK!");
     }
     else {
       Serial.print("failed, rc=");
@@ -35,10 +34,18 @@ void callback(char* topic, byte* payload, unsigned int length) {
   String msg = "";
   while (i < length) msg += (char)payload[i++];
   String path = (String)topic;
+  path.replace("/WEB/", "");
+  
   Serial.println(path + " --> " + msg);
+
+  if(path == "LED"){
+    digitalWrite(LED_BUILTIN, msg == "ON" ? LOW : HIGH); 
+  }
 }
 
 void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, HIGH); 
   Serial.begin(115200);
   Serial.println();
   Serial.print("Connecting to ");
@@ -62,5 +69,7 @@ void loop() {
   }
   client.loop();
 
-  delay(1);
+  String temp = "" + String(random(20,100));
+  client.publish("/ESP/temp", temp.c_str());
+  delay(1000);
 }

@@ -24,13 +24,13 @@ function setDataShow() {
   }, 1000);
 }
 
-var mqttSend = function (topic, msg) {
+function mqttPublish(topic, msg) {
   setTimeout(() => {
     var message = new Paho.MQTT.Message(msg);
     message.destinationName = topic;
     client.send(message);
   }, 500);
-};
+}
 
 $(document).ready(function () {
   setDataShow();
@@ -51,7 +51,7 @@ $(document).ready(function () {
       client.subscribe("/ESP/+");
       // $("#status").text("Connected").removeClass().addClass("connected");
       // client.subscribe("/ESP/LED");
-      mqttSend("/WEB/TEST", "WEB OK!");
+      mqttPublish("/WEB/TEST", "WEB OK!");
     },
     onFailure: function (e) {
       console.log(e);
@@ -69,6 +69,10 @@ $(document).ready(function () {
 
   client.onMessageArrived = function (message) {
     console.log(`${message.destinationName} --> ${message.payloadString}`);
+    var path = message.destinationName.replace("/ESP/", "");
+    if (path == "temp") {
+      dataShow[path] = message.payloadString;
+    }
   };
   // MQTT End
 });
