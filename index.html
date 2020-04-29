@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DRFT MACHINE</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/Font_Promp/promp.css" />
+    <link rel="stylesheet" href="./css/myStyle.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="text-center">
+        <h1>DRFT MACHINE</h1>
+      </div>
+      <div style="margin-top: 20px;">
+        <div class="table-responsive">
+          <table class="table table-borderless table-sm">
+            <tbody>
+              <tr>
+                <td style="vertical-align: middle; width: 20%;">EC</td>
+                <td style="vertical-align: middle; width: 20%;">
+                  <span id="ec">0</span>
+                </td>
+                <td style="vertical-align: middle; width: 20%;">Pump Water</td>
+                <td style="vertical-align: middle; width: 20%;">
+                  <span id="pump_water">0</span>
+                </td>
+                <td style="vertical-align: middle; width: 10%;">LED</td>
+                <td style="vertical-align: middle; width: 10%;">
+                  <span id="led">0</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle; width: 20%;">Temperature</td>
+                <td style="vertical-align: middle; width: 20%;">
+                  <span id="temp">0</span>
+                </td>
+                <td style="vertical-align: middle; width: 20%;">
+                  Water Fertilizer
+                </td>
+                <td style="vertical-align: middle; width: 20%;">
+                  <span id="water_fertilizer">0</span>
+                </td>
+                <td style="vertical-align: middle; width: 10%;">Fan</td>
+                <td style="vertical-align: middle; width: 10%;">
+                  <span id="fan">0</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle; width: 20%;">Humidity</td>
+                <td style="vertical-align: middle; width: 20%;">
+                  <span id="humi">0</span>
+                </td>
+                <td style="vertical-align: middle; width: 20%;">Pump Demote</td>
+                <td style="vertical-align: middle; width: 20%;">
+                  <span id="pump_demote">0</span>
+                </td>
+                <td style="vertical-align: middle; width: 10%;"></td>
+                <td style="vertical-align: middle; width: 10%;"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      Hello
+    </div>
+  </body>
+  <script src="./js/jquery-3.5.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.js"></script>
+  <script src="./js/mqttws31.js"></script>
+  <script src="./js/myScript.js"></script>
+</html>
